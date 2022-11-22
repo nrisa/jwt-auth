@@ -1,9 +1,9 @@
 const express = require("express");
-const { verifyToken } = require("../middleware/VerifyToken.js");
-const { refreshToken } = require("../controllers/RefreshToken.js");
+const { verifyToken } = require("../middleware/VerifyToken");
+const { refreshToken } = require("../controllers/RefreshToken");
 
 // controllers
-const { getUsers, Register, Login, Logout } = require("../controllers/User.js");
+const { getUsers, Register, Login, Logout } = require("../controllers/User");
  
 const router = express.Router();
  
