@@ -3,8 +3,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  width: 80px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -22,6 +21,19 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+button {
+  color: white;
+  border: none;
+  background-color: #61dafb;
+  padding: 4.5px 15px;
+  margin: 3px;
+}
+
+input {
+  margin: 3px;
+  padding: 3px 16px;
 }
 
 .App-link {

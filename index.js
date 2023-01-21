@@ -1,15 +1,22 @@
 const express = require("express");
+const cors = require("cors");
+const app = express();
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
-const cors = require("cors");
+
+// agar cookies bisa di set
+const corsOptions = {
+    origin: true, //included origin as true
+    credentials: true, //included credentials as true
+  };
+
+app.use(cors(corsOptions));
+
 const db = require("./config/Database.js");
 const router = require("./routes/User.js");
 const port = 4000;
 
 dotenv.config();
-const app = express();
-
-app.use(cors({ credentials:true, origin:'http://localhost:3000' }));
 app.use(cookieParser());
 app.use(express.json());
 app.use(router);

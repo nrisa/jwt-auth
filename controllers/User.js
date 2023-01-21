@@ -41,6 +41,7 @@ module.exports.Login = async(req, res) => {
             }
         })
             .then(result => {
+                console.log(result[0].password);
                 bcrypt.compare(req.body.password, result[0].password)
                     .then(match => {
                         if(!match) return res.status(400).json({message: "Wrong Password"});
@@ -51,7 +52,7 @@ module.exports.Login = async(req, res) => {
                 const email = result[0].email;
                 const accessToken = jwt.sign({userId, name, email}, process.env.ACCESS_TOKEN_SECRET,{
                     expiresIn: '20s'
-                });
+                }); 
                 const refreshToken = jwt.sign({userId, name, email}, process.env.REFRESH_TOKEN_SECRET,{
                     expiresIn: '1d'
                 });
@@ -68,6 +69,7 @@ module.exports.Login = async(req, res) => {
                         });
                         res.json({ accessToken })
                     })
+                    .catch(error => console.error(error))
             })
 }
  

@@ -19,8 +19,8 @@ const Users = db.define('users',{
     timestamps: true
 });
  
-(async () => {
-    await db.sync();
-})();
+// (async () => {
+//     await db.sync();
+// })();
  
 module.exports = Users;
